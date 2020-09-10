@@ -1,0 +1,60 @@
+ <!--  Simple VueJs App for Changing strings to UPPERCASE
+   
+    Steps to run:-
+    1. I used Vue JS CDN at line 29 so Internet connection is must to function features properly.
+    2. Just double click on the file VueApp.html 
+    -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs App</title>
+   
+   <!-- Below style code set whole app into top center for better visibility-->
+    <style>
+        #app {
+       position: fixed;
+       top: 10%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <!--Here you can say our small app component or frontend with button and input field-->
+    <div id="app">
+        <input type="text" v-model="inputText" placeholder="Type Any String">
+          <button @click="converter">Convert</button><br>  <!-- We can use v-on:click instead of @click  -->
+          <!-- Without use of parenthesis vueJs takes things as a string -->
+          {{message}}
+          
+    </div>
+    
+    <!--CDN link of VueJs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>  
+    
+    <script>
+        // Here app is instance of new vue app is containing everything of vue you can see in browser console 
+        // el means elements which is binding app we can say in simple words it create connection with app
+        
+        let app=new Vue({            
+            el:'#app',
+            data:{
+                message: "Click Conevrt Button I WILL GIVE YOU THAT STRING IN UPPERCASE",
+                inputText:null
+            },
+            methods:{
+                 converter(){
+                     this.message=this.inputText.toUpperCase();
+                     this.inputText=null;
+
+                 }
+            },
+
+        })
+    </script>    
+</body>
+</html>
